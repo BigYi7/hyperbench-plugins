@@ -25,7 +25,7 @@ jobs:
         run: |
           cd hyperchain
           make build
-          echo "success"
+          echo "success1"
           
       - name: Release Binary
         uses: softprops/action-gh-release@v1
