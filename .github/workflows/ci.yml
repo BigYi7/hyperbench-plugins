@@ -35,8 +35,7 @@ jobs:
       - name: Release Binary
         uses: softprops/action-gh-release@v1
         with:
-          files: ./hyperchain.so
+          files: ./hyperchain/hyperchain.so
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: v1.1
 
