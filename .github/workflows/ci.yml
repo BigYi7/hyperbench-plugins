@@ -31,7 +31,6 @@ jobs:
       - name: Get current tag
         id: get_tag
         run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
-        tag: ${{ steps.get_tag.outputs.tag }}
           
       - name: Release Binary
         uses: softprops/action-gh-release@v1
@@ -39,4 +38,5 @@ jobs:
           files: ./hyperchain.so
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.get_tag.outputs.TAG }}
 
