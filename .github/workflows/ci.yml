@@ -13,6 +13,11 @@ jobs:
   build:
     name: Build project
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        arch: [arm64]
+        
     steps:
       - name: Set up Go 1.18
         uses: actions/setup-go@v3
