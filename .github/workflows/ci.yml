@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Go build
-        run: ｜
+        run: |
           cd hyperchain
           make build
           echo "success"
