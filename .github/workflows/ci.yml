@@ -7,16 +7,28 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-
+    name: Build project
     runs-on: ubuntu-latest
-
     steps:
-      #
-      - uses: actions/checkout@v3
-      - name: Build the Docker image
-        run: |
+      - name: Set up Go 1.18
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
+      - name: Go build
+        run: ｜
           cd hyperchain
           make build
           echo "success"
+          
+      - name: Release Binary
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./hyperchain.so
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
