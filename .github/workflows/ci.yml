@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     name: Build project
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04-arm64
     strategy:
       matrix:
         os: [ubuntu-20.04]
